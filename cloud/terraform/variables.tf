@@ -371,3 +371,38 @@ variable "icd_mongo_service_endpoints" {
   type        = string
   description = "Types of the service endpoints. Possible values are 'public', 'private', 'public-and-private'."
 }
+
+##############################################################################
+# ICD PosgtgreSQL Services
+##############################################################################
+variable "icd_postgres_plan" {
+  type        = string
+  description = "The plan type of the Database instance"
+  default     = "standard"
+}
+variable "icd_postgres_adminpassword" {
+  type        = string
+  description = "The admin user password for the instance"
+  default     = "Passw0rd01"
+}
+variable "icd_postgres_db_version" {
+  default     = "12"
+  type        = string
+  description = "The database version to provision if specified"
+}
+variable "icd_postgres_users" {
+  default     = null
+  type        = set(map(string))
+  description = "Database Users. It is set of username and passwords"
+}
+variable "icd_postgres_whitelist" {
+  default     = null
+  type        = set(map(string))
+  description = "Database Whitelist It is set of IP Address and description"
+}
+variable "icd_postgres_service_endpoints" {
+  default     = "public"
+  type        = string
+  description = "Types of the service endpoints. Possible values are 'public', 'private', 'public-and-private'."
+}
+
